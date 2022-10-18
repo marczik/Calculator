@@ -21,13 +21,26 @@ operButtons.forEach(button =>
 	button.addEventListener("click", () => addOperator(button.textContent))
 );
 
+clearButton.addEventListener("click", clearDisplay);
+
 function addNumber(number) {
+    if (display.textContent === "0") {
+        resetDisplay()
+    }
 	display.textContent += number;
-}
+};
 
 function addOperator(oper) {
 	display.textContent += oper;
-}
+};
+
+function clearDisplay() {
+    display.textContent = "0";
+};
+
+function resetDisplay() {
+    display.textContent = "";
+};
 
 function operate(x, y, operator) {
 	if (operator == "add") {
