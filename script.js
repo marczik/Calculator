@@ -14,6 +14,7 @@ const display = document.querySelector(".display");
 
 let firstNumber = "";
 let secondNumber = "";
+let result = 0;
 
 numButtons.forEach(button =>
 	button.addEventListener("click", () => addNumber(button.textContent))
@@ -62,43 +63,41 @@ function calculation() {
 
 	if (indexOfAdd > 0) {
 		arrayAfterOperand = newDisplayText.slice(indexOfAdd + 1);
+		let stringAfterOperand = arrayAfterOperand.join("");
+		secondNumber = stringAfterOperand;
+		operate(firstNumber, secondNumber, "add");
 	} else if (indexOfSubtract > 0) {
 		arrayAfterOperand = newDisplayText.slice(indexOfSubtract + 1);
+		let stringAfterOperand = arrayAfterOperand.join("");
+		secondNumber = stringAfterOperand;
+		operate(firstNumber, secondNumber, "subtract");
 	} else if (indexOfMultiply > 0) {
 		arrayAfterOperand = newDisplayText.slice(indexOfMultiply + 1);
+		let stringAfterOperand = arrayAfterOperand.join("");
+		secondNumber = stringAfterOperand;
+		operate(firstNumber, secondNumber, "multiply");
 	} else if (indexOfDivide > 0) {
 		arrayAfterOperand = newDisplayText.slice(indexOfDivide + 1);
+		let stringAfterOperand = arrayAfterOperand.join("");
+		secondNumber = stringAfterOperand;
+		operate(firstNumber, secondNumber, "divide");
 	}
-
-	let stringAfterOperand = arrayAfterOperand.join("");
-	secondNumber = stringAfterOperand;
-	console.log(secondNumber);
 }
 
 function operate(x, y, operator) {
+	x = Number(x);
+	y = Number(y);
+
 	if (operator == "add") {
-		add(x, y);
+		result = x + y;
 	} else if (operator == "subtract") {
-		subtract(x, y);
+		result = x - y;
 	} else if (operator == "multiply") {
-		multiply(x, y);
+		result = x * y;
 	} else if (operator == "divide") {
-		divide(x, y);
+		result = x / y;
 	}
-}
-
-function add(x, y) {
-	return x + y;
-}
-
-function subtract(x, y) {
-	return x - y;
-}
-
-function multiply(x, y) {
-	return x * y;
-}
-
-function divide(x, y) {
-	return x / y;
+	console.log(result);
+	resetDisplay();
+	display.textContent = result;
 }
