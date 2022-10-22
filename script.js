@@ -36,6 +36,25 @@ function addNumber(number) {
 }
 
 function addOperator(oper) {
+	let newDisplayText = display.textContent.split("");
+	const searchAddOperator = "+";
+	const searchSubtractOperator = "-";
+	const searchMultiplyOperator = "*";
+	const searchDivideOperator = "/";
+
+	const indexOfAdd = newDisplayText.indexOf(searchAddOperator);
+	const indexOfSubtract = newDisplayText.indexOf(searchSubtractOperator);
+	const indexOfMultiply = newDisplayText.indexOf(searchMultiplyOperator);
+	const indexOfDivide = newDisplayText.indexOf(searchDivideOperator);
+
+	if (
+		indexOfAdd > 0 ||
+		indexOfSubtract > 0 ||
+		indexOfMultiply > 0 ||
+		indexOfDivide > 0
+	) {
+		calculation();
+	}
 	firstNumber = display.textContent;
 	display.textContent += oper;
 }
