@@ -26,6 +26,8 @@ operButtons.forEach(button =>
 
 clearButton.addEventListener("click", clearDisplay);
 
+backButton.addEventListener("click", backNumber);
+
 equalButton.addEventListener("click", calculation);
 
 function addNumber(number) {
@@ -65,6 +67,15 @@ function clearDisplay() {
 
 function resetDisplay() {
 	display.textContent = "";
+}
+
+function backNumber() {
+	if (display.textContent.length === 1) {
+		clearDisplay();
+	} else {
+		display.textContent = display.textContent.slice(0, -1);
+		console.log(display.textContent);
+	}
 }
 
 function calculation() {

@@ -51,6 +51,18 @@ button {
 #back,
 #clear {
 	width: 160px;
+	background-color: rgb(104, 104, 187);
+}
+
+#add,
+#subtract,
+#multiply,
+#divide {
+	background-color: darkgoldenrod;
+}
+
+#equal {
+	background-color: brown;
 }
 
 .footer {
