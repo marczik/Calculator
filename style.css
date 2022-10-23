@@ -13,6 +13,7 @@ button {
 	width: 70px;
 	font-size: large;
 	border-radius: 5px;
+	cursor: pointer;
 }
 .calculator {
 	display: flex;
@@ -21,6 +22,7 @@ button {
 	border-radius: 5px;
 	padding: 20px;
 	width: 350px;
+	background-color: rgb(196, 196, 196);
 }
 
 .display {
@@ -29,6 +31,8 @@ button {
 	border: 1.7px solid #1f2937;
 	padding: 40px;
 	border-radius: 5px;
+	background-color: antiquewhite;
+	font-size: 25px;
 }
 
 .keyboard {
@@ -46,6 +50,10 @@ button {
 .fifth-line {
 	display: flex;
 	gap: 20px;
+}
+
+.change-size {
+	transform: scale(1.05);
 }
 
 #back,

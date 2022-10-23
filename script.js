@@ -9,6 +9,7 @@ const clearButton = document.querySelector("#clear");
 
 const numButtons = document.querySelectorAll("[data-num]");
 const operButtons = document.querySelectorAll("[data-oper]");
+const allButtons = document.querySelectorAll("button");
 
 const display = document.querySelector(".display");
 
@@ -29,6 +30,14 @@ clearButton.addEventListener("click", clearDisplay);
 backButton.addEventListener("click", backNumber);
 
 equalButton.addEventListener("click", calculation);
+
+allButtons.forEach(button =>
+	button.addEventListener("mousemove", () => mouseMove(button))
+);
+
+allButtons.forEach(button =>
+	button.addEventListener("mouseleave", () => mouseMoveLeave(button))
+);
 
 function addNumber(number) {
 	if (display.textContent === "0") {
@@ -112,6 +121,14 @@ function calculation() {
 		secondNumber = stringAfterOperand;
 		operate(firstNumber, secondNumber, "divide");
 	}
+}
+
+function mouseMove(button) {
+	button.classList.add("change-size");
+}
+
+function mouseMoveLeave(button) {
+	button.classList.remove("change-size");
 }
 
 function operate(x, y, operator) {
